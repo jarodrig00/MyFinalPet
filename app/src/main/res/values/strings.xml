@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyFinalPet</string>
+    <string name="name">Mi Buho</string>
+    <string name="color_blanco">#FFFFFF</string>
+    <string name="lstName">lstNombre</string>
+    <string name="lstCount">lstCount</string>
+    <string name="lstPhoto">lstPhoto</string>
+</resources>
