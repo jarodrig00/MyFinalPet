@@ -1,4 +1,4 @@
-package com.softnopal.myfinalpet;
+package com.softnopal.myfinalpet.adpater;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,8 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.softnopal.myfinalpet.pojo.Pet;
+import com.softnopal.myfinalpet.R;
+
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 /**
  * Created by jarodrig00 on 30/04/17.

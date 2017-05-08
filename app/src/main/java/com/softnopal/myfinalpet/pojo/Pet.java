@@ -1,8 +1,6 @@
-package com.softnopal.myfinalpet;
+package com.softnopal.myfinalpet.pojo;
 
 import android.support.annotation.NonNull;
-
-import java.util.Comparator;
 
 /**
  * Created by jarodrig00 on 29/04/17.

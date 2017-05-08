@@ -1,16 +1,16 @@
-package com.softnopal.myfinalpet;
+package com.softnopal.myfinalpet.adpater;
 
 import android.app.Activity;
-import android.graphics.Color;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.softnopal.myfinalpet.pojo.Pet;
+import com.softnopal.myfinalpet.R;
 
 import java.util.ArrayList;
 

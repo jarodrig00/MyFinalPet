@@ -3,25 +3,57 @@ package com.softnopal.myfinalpet;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+
+import com.softnopal.myfinalpet.adpater.PageAdapter;
+import com.softnopal.myfinalpet.adpater.PetAdapter;
+import com.softnopal.myfinalpet.fragment.PetFragment;
+import com.softnopal.myfinalpet.fragment.RecyclerViewFragment;
+import com.softnopal.myfinalpet.pojo.Pet;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Pet> pets;
-    private RecyclerView rvPets;
     private Toolbar myToolBar;
-    private FloatingActionButton fabMyActionBar;
+    private TabLayout tabMain;
+    private ViewPager vpPet;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent i;
+        switch (item.getItemId()) {
+            case R.id.mnuAcercaDe:
+                //Toast.makeText(this, "Opcion acerca de", Toast.LENGTH_SHORT).show();
+                i = new Intent(MainActivity.this, desarrollador.class);
+                startActivity(i);
+                return true;
+
+            case R.id.mnuContactos:
+                //Toast.makeText(this, "Opcion contactos", Toast.LENGTH_SHORT).show();
+                i = new Intent(MainActivity.this, contactos.class);
+                startActivity(i);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,51 +62,16 @@ public class MainActivity extends AppCompatActivity {
 
         myToolBar = (Toolbar) findViewById(R.id.myActionBar);
         setSupportActionBar(myToolBar);
-        myToolBar.setTitle(getResources().getString(R.string.app_name));
+        //myToolBar.setTitle(getResources().getString(R.string.app_name));
         myToolBar.setTitleTextColor(Color.parseColor(getResources().getString(R.string.color_blanco)));
+        myToolBar.inflateMenu(R.menu.menu_principal);
 
-        fabMyActionBar = (FloatingActionButton) findViewById(R.id.fabMyActionBar);
-        fabMyActionBar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ArrayList <Pet> listaPet = new ArrayList<Pet>();
-                for(Pet p : pets){
-                    listaPet.add(p);
-                }
+        tabMain = (TabLayout) findViewById(R.id.tabMain);
+        vpPet = (ViewPager) findViewById(R.id.vpPet);
 
-                Collections.sort(listaPet);
-                int max = 4;
-                if (listaPet.size() < max)
-                    max = listaPet.size();
-
-                ArrayList<String> name = new ArrayList<String>();
-                ArrayList<Integer> count = new ArrayList<Integer>();
-                ArrayList<Integer> foto = new ArrayList<Integer>();
-                int j = 0;
-                for (Pet p : listaPet){
-                    name.add(p.getNombre());
-                    count.add(p.getCuenta());
-                    foto.add(p.getFoto());
-                    j = j + 1;
-                    if (j > max)
-                        break;
-                }
-                Toast.makeText(MainActivity.this, "Clic en Fav " + listaPet.get(0).getNombre(), Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(MainActivity.this, myFavoritePet.class);
-                //Prueba para mandar un list de objetos
-                i.putExtra(getResources().getString(R.string.lstName), name);
-                i.putExtra(getResources().getString(R.string.lstCount), count);
-                i.putExtra(getResources().getString(R.string.lstPhoto), foto);
-
-                //Se pueden enviar arreglos de datos primitivos
-                startActivity(i);
-                //finish();
+        setUpViewPager();
 
 
-                listaPet.clear();
-                listaPet = null;
-            }
-        });
 
         /*
 
@@ -82,31 +79,27 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setTitleTextColor(Color.parseColor(getResources().getString(R.string.color_blanco)));
          */
 
-        rvPets = (RecyclerView) findViewById(R.id.rvPets);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        rvPets.setLayoutManager(llm);
 
-        startUpPet();
-        startUpAdapter();
+        if(myToolBar != null)
+            setSupportActionBar(myToolBar);
+
+        agregarFragments();
     }
 
-    public void startUpPet (){
-        pets = new ArrayList<Pet>();
-        pets.add(new Pet("Buho", R.drawable.buho));
-        pets.add(new Pet("Cerdo", R.drawable.cerdo));
-        pets.add(new Pet("Gato", R.drawable.gato));
-        pets.add(new Pet("Gatito", R.drawable.gato2));
-        pets.add(new Pet("Gusano", R.drawable.gusano));
-        pets.add(new Pet("Pato", R.drawable.pato));
-        pets.add(new Pet("Perro", R.drawable.perro));
-        pets.add(new Pet("Piolin", R.drawable.piolin));
-        pets.add(new Pet("Pulpo", R.drawable.pulpo));
-
+    public void setUpViewPager(){
+        vpPet.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
+        tabMain.setupWithViewPager(vpPet);
+        tabMain.getTabAt(0).setIcon(R.drawable.home_48);
+        tabMain.getTabAt(1).setIcon(R.drawable.cat_48);
     }
 
-    public void startUpAdapter(){
-        PetAdapter petAdapter = new PetAdapter(pets);
-        rvPets.setAdapter(petAdapter);
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<Fragment>();
+        fragments.add(new RecyclerViewFragment());
+        fragments.add(new PetFragment());
+
+        return  fragments;
     }
+
+
 }

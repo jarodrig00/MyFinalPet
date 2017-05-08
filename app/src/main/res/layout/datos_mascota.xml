@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<android.support.v7.widget.CardView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:card_view="http://schemas.android.com/apk/res-auto"
+android:id="@+id/vcPetF"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginLeft="@dimen/activity_vertical_margin"
+android:layout_marginRight="@dimen/activity_vertical_margin"
+android:layout_marginBottom="@dimen/activity_vertical_margin"
+android:layout_marginTop="@dimen/activity_vertical_margin"
+card_view:cardCornerRadius="@dimen/corner_radius_cardview"
+    >
+
+
+    <LinearLayout
+        android:id="@+id/llPetF1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+    >
+    <ImageView
+        android:id="@+id/imPetF1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/buho"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="left">
+
+        <ImageView
+            android:id="@+id/ivDecF1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bone"/>
+
+        <TextView
+            android:id="@+id/tvNameF1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="@dimen/textSizeCV"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:text="@string/name"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="right">
+
+            <TextView
+                android:id="@+id/tvCountPetF1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/activity_vertical_margin"
+                android:text="05"
+                android:textSize="@dimen/textSizeCV"/>
+
+
+
+            <ImageView
+                android:id="@+id/ivIncF1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/yellow_bone"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+</android.support.v7.widget.CardView>

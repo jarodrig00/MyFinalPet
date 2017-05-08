@@ -7,6 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.softnopal.myfinalpet.adpater.PetAdapter;
+import com.softnopal.myfinalpet.pojo.Pet;
+
 import java.util.ArrayList;
 
 public class myFavoritePet extends AppCompatActivity {

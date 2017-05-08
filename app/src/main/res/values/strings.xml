@@ -5,4 +5,18 @@
     <string name="lstName">lstNombre</string>
     <string name="lstCount">lstCount</string>
     <string name="lstPhoto">lstPhoto</string>
+    <string name="mnuContacto">Contacto</string>
+    <string name="mnuAcercaDe">Acerca De</string>
+    <string name="hint_name">Nombre Completo</string>
+    <string name="hint_email">Correo</string>
+    <string name="hint_description">Descripcion Contacto</string>
+    <string name="hint_aceptar">Aceptar</string>
+    <string name="hint_bio">Acerca Desarrollador</string>
+    <string name="ems">10</string>
+    <string name="hint_enviar">Enviar Comentario</string>
+    <string name="single_line">1</string>
+    <string name="memo_line">20</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.softnopal.myfinalpet.fragment.PetFragment">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvDatos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+    </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+</FrameLayout>
+-->
+
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.softnopal.myfinalpet.fragment.PetFragment">
+
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/ciBuho"
+        android:layout_width="@dimen/size_image"
+        android:layout_height="@dimen/size_image"
+        android:src="@drawable/buho"
+        android:layout_centerHorizontal="true"/>
+
+
+    <GridView
+        android:id="@+id/gvMascota"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ciBuho"
+        android:numColumns="3"
+        >
+
+    </GridView>
+
+
+</RelativeLayout>
