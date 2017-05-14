@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.softnopal.myfinalpet.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,16 +17,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".myFavoritePet"
-            android:parentActivityName=".MainActivity">
+            android:name="com.softnopal.myfinalpet.myFavoritePet"
+            android:parentActivityName="com.softnopal.myfinalpet.MainActivity">
 
             <!-- Para versiones 4.0 o menores -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.softnopal.myfinalpet.MainActivity" />
         </activity>
-        <activity android:name=".contactos" />
-        <activity android:name=".desarrollador"></activity>
+        <activity android:name="com.softnopal.myfinalpet.contactos" />
+        <activity android:name="com.softnopal.myfinalpet.desarrollador"></activity>
     </application>
 
 </manifest>

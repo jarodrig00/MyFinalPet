@@ -1,8 +1,6 @@
 package com.softnopal.myfinalpet.adpater;
 
-import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +19,7 @@ import java.util.ArrayList;
 public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
 
     ArrayList <Pet> pets;
-    Activity activity;
+
 
     public PetAdapter(ArrayList<Pet> pets){
         this.pets = pets;
@@ -45,7 +43,9 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
             public void onClick(View v) {
                 pets.get(position).incCount();
                 holder.tvCountPet.setText(Integer.toString(pets.get(position).getCuenta()));
-                Log.i("Incremento", Integer.toString(pets.get(position).getCuenta()));
+                //Log.i("Incremento", Integer.toString(pets.get(position).getCuenta()));
+
+                myPet.updateDB(holder.ivInc.getContext());
             }
         });
 
@@ -54,7 +54,8 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
             public void onClick(View v) {
                 pets.get(position).decCount();
                 holder.tvCountPet.setText(Integer.toString(pets.get(position).getCuenta()));
-                Log.i("Decremento", Integer.toString(pets.get(position).getCuenta()));
+                //Log.i("Decremento", Integer.toString(pets.get(position).getCuenta()));
+                myPet.updateDB(holder.ivDec.getContext());
             }
         });
     }

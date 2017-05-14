@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.softnopal.myfinalpet.R;
+
 public class desarrollador extends AppCompatActivity {
 
     @Override

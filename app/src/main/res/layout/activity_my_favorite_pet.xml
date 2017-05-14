@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    tools:context="com.softnopal.myfinalpet.MainActivity">
+    tools:context="com.softnopal.myfinalpetDB.com.softnopal.myfinalpet.MainActivity">
 
     <include android:id="@id/myActionBar"
         layout="@layout/action_bar"></include>

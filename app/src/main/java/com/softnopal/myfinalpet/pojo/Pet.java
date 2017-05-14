@@ -1,27 +1,49 @@
 package com.softnopal.myfinalpet.pojo;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
+
+import com.softnopal.myfinalpet.db.ConstructorPet;
 
 /**
  * Created by jarodrig00 on 29/04/17.
  */
 
-public class Pet implements Comparable{
+public class Pet implements Comparable  {
 
+    int id;
     String nombre;
     int foto;
+    int cuenta;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+
 
     public int getCuenta() {
         return cuenta;
     }
 
-    int cuenta;
 
     public Pet(String nombre, int foto) {
 
         this.nombre = nombre;
         this.foto = foto;
         this.cuenta = 0;
+    }
+
+    public Pet(int id, String nombre, int foto, int cuenta){
+        this.id = id;
+        this.nombre = nombre;
+        this.foto = foto;
+        this.cuenta = cuenta;
     }
 
     public Pet(String nombre, int foto, int cuenta){
@@ -61,5 +83,10 @@ public class Pet implements Comparable{
         int compareCuenta = ((Pet) o).getCuenta();
 
         return compareCuenta - this.getCuenta();
+    }
+
+    public void updateDB(Context context){
+        ConstructorPet constructorPet = new ConstructorPet(context);
+        constructorPet.updatePetDB(getId(), getCuenta());
     }
 }

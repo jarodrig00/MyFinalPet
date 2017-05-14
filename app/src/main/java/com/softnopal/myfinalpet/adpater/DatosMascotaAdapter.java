@@ -1,7 +1,6 @@
 package com.softnopal.myfinalpet.adpater;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,17 +8,15 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.softnopal.myfinalpet.R;
 import com.softnopal.myfinalpet.pojo.Pet;
-
-import java.util.ArrayList;
+import com.softnopal.myfinalpet.R;
 
 /**
  * Created by jarodrig00 on 07/05/17.
  */
 
 public class DatosMascotaAdapter extends  BaseAdapter{
-    private static Pet [] ITEMS = {
+    private static Pet[] ITEMS = {
             new Pet("Buho", R.drawable.buho, 2),
             new Pet("Buho", R.drawable.buho, 4),
             new Pet("Buho", R.drawable.buho, 2),

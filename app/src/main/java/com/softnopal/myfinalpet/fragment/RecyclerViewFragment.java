@@ -6,19 +6,18 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.softnopal.myfinalpet.MainActivity;
-import com.softnopal.myfinalpet.R;
-import com.softnopal.myfinalpet.adpater.PageAdapter;
 import com.softnopal.myfinalpet.adpater.PetAdapter;
 import com.softnopal.myfinalpet.myFavoritePet;
 import com.softnopal.myfinalpet.pojo.Pet;
+import com.softnopal.myfinalpet.presenter.IRecyclerViewPresenter;
+import com.softnopal.myfinalpet.presenter.RecyclerViewPresenter;
+import com.softnopal.myfinalpet.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,10 +26,12 @@ import java.util.Collections;
  * Created by jarodrig00 on 07/05/17.
  */
 
-public class RecyclerViewFragment extends Fragment {
+public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragmentView {
 
-    private ArrayList<Pet> pets;
+    //private ArrayList<Pet> pets;
     private RecyclerView rvPets;
+    private IRecyclerViewPresenter presenter;
+
     private FloatingActionButton fabMyActionBar;
 
     @Nullable
@@ -40,21 +41,21 @@ public class RecyclerViewFragment extends Fragment {
 
 
 
+
         rvPets = (RecyclerView) v.findViewById(R.id.rvPets);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        rvPets.setLayoutManager(llm);
-
-        startUpPet();
-        startUpAdapter();
+        presenter = new RecyclerViewPresenter(this, getContext());
 
 
-        fabMyActionBar = (FloatingActionButton) v.findViewById(R.id.fabMyActionBar);
-        /*
+
+
+        fabMyActionBar = (FloatingActionButton) getActivity().findViewById(R.id.fabMyActionBar);
+
         fabMyActionBar.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
-                ArrayList <Pet> listaPet = new ArrayList<Pet>();
+                ArrayList <Pet> listaPet = new ArrayList<>();
+                ArrayList<Pet> pets = presenter.getPets();
                 for(Pet p : pets){
                     listaPet.add(p);
                 }
@@ -92,29 +93,32 @@ public class RecyclerViewFragment extends Fragment {
 
             }
         });
-        */
+
 
         return v;
     }
 
 
 
-    public void startUpPet (){
-        pets = new ArrayList<Pet>();
-        pets.add(new Pet("Buho", R.drawable.buho));
-        pets.add(new Pet("Cerdo", R.drawable.cerdo));
-        pets.add(new Pet("Gato", R.drawable.gato));
-        pets.add(new Pet("Gatito", R.drawable.gato2));
-        pets.add(new Pet("Gusano", R.drawable.gusano));
-        pets.add(new Pet("Pato", R.drawable.pato));
-        pets.add(new Pet("Perro", R.drawable.perro));
-        pets.add(new Pet("Piolin", R.drawable.piolin));
-        pets.add(new Pet("Pulpo", R.drawable.pulpo));
 
+    @Override
+    public void generaLayoutVertical() {
+
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        rvPets.setLayoutManager(llm);
     }
 
-    public void startUpAdapter(){
+
+    @Override
+    public PetAdapter generaAdaptador(ArrayList<Pet> pets) {
         PetAdapter petAdapter = new PetAdapter(pets);
+        return petAdapter;
+    }
+
+
+    @Override
+    public void inicializaAdaptador(PetAdapter petAdapter) {
         rvPets.setAdapter(petAdapter);
     }
 }

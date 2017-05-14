@@ -1,4 +1,4 @@
-package com.softnopal.myfinalpet;
+package com.softnopal.myfinalpetDB;
 
 import org.junit.Test;
 
