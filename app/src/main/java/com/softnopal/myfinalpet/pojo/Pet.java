@@ -15,6 +15,17 @@ public class Pet implements Comparable  {
     String nombre;
     int foto;
     int cuenta;
+    String urlFoto;
+
+    public String getUrlFoto() {
+        return urlFoto;
+    }
+
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
+    }
+
+
 
     public int getId() {
         return id;
@@ -31,7 +42,10 @@ public class Pet implements Comparable  {
         return cuenta;
     }
 
-
+    public Pet(int id, String nombre){
+        this.id = id;
+        this.nombre = nombre;
+    }
     public Pet(String nombre, int foto) {
 
         this.nombre = nombre;
@@ -39,11 +53,12 @@ public class Pet implements Comparable  {
         this.cuenta = 0;
     }
 
-    public Pet(int id, String nombre, int foto, int cuenta){
+    public Pet(int id, String nombre, int foto, int cuenta, String urlFoto){
         this.id = id;
         this.nombre = nombre;
         this.foto = foto;
         this.cuenta = cuenta;
+        this.urlFoto = urlFoto;
     }
 
     public Pet(String nombre, int foto, int cuenta){
@@ -76,6 +91,8 @@ public class Pet implements Comparable  {
         if (cuenta > 0)
             cuenta = cuenta - 1;
     }
+
+
 
 
     @Override

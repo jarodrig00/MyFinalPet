@@ -32,7 +32,7 @@ public class PetAdapterF extends RecyclerView.Adapter<PetAdapterF.PetViewHolderF
     @Override
     public void onBindViewHolder(PetViewHolderF holder, int position) {
         final Pet myPetF = favoritePet.get(position);
-        holder.imPetF.setImageResource(myPetF.getFoto());
+        //holder.imPetF.setImageResource(myPetF.getFoto());
         holder.tvCountPetF.setText(Integer.toString(myPetF.getCuenta()));
         holder.tvNameF.setText(myPetF.getNombre());
     }

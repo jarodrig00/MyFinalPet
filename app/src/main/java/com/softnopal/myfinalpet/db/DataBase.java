@@ -53,7 +53,7 @@ public class DataBase extends SQLiteOpenHelper {
         Cursor registro = db.rawQuery(strQuery, null);
         while (registro.moveToNext()){
             Pet pet = new Pet(registro.getInt(0), registro.getString(1),
-                                registro.getInt(2), registro.getInt(3));
+                                registro.getInt(2), registro.getInt(3), "");
             pets.add(pet);
         }
         db.close();

@@ -7,6 +7,7 @@
     <string name="lstPhoto">lstPhoto</string>
     <string name="mnuContacto">Contacto</string>
     <string name="mnuAcercaDe">Acerca De</string>
+    <string name="mnuConfiguracion">Configuracion</string>
     <string name="hint_name">Nombre Completo</string>
     <string name="hint_email">Correo</string>
     <string name="hint_description">Descripcion Contacto</string>
@@ -16,6 +17,20 @@
     <string name="hint_enviar">Enviar Comentario</string>
     <string name="single_line">1</string>
     <string name="memo_line">20</string>
+    <string name="usuario_instagram_no_valido">Usuario no válido</string>
+
+    <!-- Configuración para accesar a Instagram -->
+    <string name="user_default">jaurelio_rodriguez</string>
+    <string name="id_default">5518916073</string>
+    <string name="fullname_default">Aurelio Rodriguez</string>
+    <string name="user_instagram">Usuario:</string>
+    
+    <!-- KEY para almacenar en archivo -->
+    <string name="key_preferences_id">ID</string>
+    <string name="key_preferences_user">USER</string>
+    <string name="key_preferences_fullname">FULL_NAME</string>
+    <string name="file_name">configuracionMyFinalPet</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

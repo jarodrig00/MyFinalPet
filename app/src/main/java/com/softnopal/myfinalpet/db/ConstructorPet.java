@@ -20,7 +20,7 @@ public class ConstructorPet {
 
     public ArrayList<Pet> getData(){
         DataBase db = new DataBase(context);
-        insertPetDB(db);
+        //insertPetDB(db);
         return  db.getAllPets();
     }
 

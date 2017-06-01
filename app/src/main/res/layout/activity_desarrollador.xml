@@ -11,12 +11,13 @@
     tools:context="com.softnopal.myfinalpetDB.com.softnopal.myfinalpet.desarrollador">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="336dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerVertical="true"
         android:id="@+id/llAreaContacto"
-        >
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp">
 
         <TextView
             android:id="@+id/tvConfirmar"

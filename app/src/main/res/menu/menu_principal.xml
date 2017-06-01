@@ -8,4 +8,9 @@
         android:id="@+id/mnuAcercaDe"
         android:title="@string/mnuAcercaDe"
         android:orderInCategory="200"></item>
+    <item
+        android:id="@+id/mnuConfiguracion"
+        android:title="@string/mnuConfiguracion"
+        android:orderInCategory="300"></item>
+
 </menu>

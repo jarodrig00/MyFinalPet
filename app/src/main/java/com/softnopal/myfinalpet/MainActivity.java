@@ -10,11 +10,14 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.softnopal.myfinalpet.R;
 import com.softnopal.myfinalpet.adpater.PageAdapter;
 import com.softnopal.myfinalpet.fragment.PetFragment;
 import com.softnopal.myfinalpet.fragment.RecyclerViewFragment;
+import com.softnopal.myfinalpet.pojo.UserInstagram;
+import com.softnopal.myfinalpet.pojo.UserPersistente;
 
 import java.util.ArrayList;
 
@@ -23,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar myToolBar;
     private TabLayout tabMain;
     private ViewPager vpPet;
+    private UserInstagram userInstagram;
+
+    int request_code = 1;
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -45,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
                 i = new Intent(MainActivity.this, contactos.class);
                 startActivity(i);
                 return true;
+            case R.id.mnuConfiguracion:
+                llamaConfiguracion();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -63,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
         tabMain = (TabLayout) findViewById(R.id.tabMain);
         vpPet = (ViewPager) findViewById(R.id.vpPet);
+        userInstagram = new UserInstagram();
+        UserPersistente userPersistente = new UserPersistente(getApplicationContext());
+        userInstagram = userPersistente.readToFile();
 
         setUpViewPager();
 
@@ -96,5 +109,19 @@ public class MainActivity extends AppCompatActivity {
         return  fragments;
     }
 
+    private void llamaConfiguracion(){
+        Intent i = new Intent(this, configuracion.class);
+        startActivityForResult(i, request_code);
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if((requestCode == request_code) && (resultCode == RESULT_OK)){
+            Toast.makeText(this, data.toString(), Toast.LENGTH_LONG).show();
+            UserPersistente userPersistente = new UserPersistente(getApplicationContext());
+            userInstagram =  userPersistente.readToFile();
+        }
+    }
 }
